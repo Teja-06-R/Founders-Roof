@@ -1,16 +1,43 @@
-# React + Vite
+# Founders Roof
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Founders Roof is a modern landing site for a founders community, built to showcase weekly meetups, social proof, upcoming events, and a clear path to registration. The UI is component-driven with a smooth, promotional flow from hero to CTA.
 
-Currently, two official plugins are available:
+## Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Sectioned landing experience: hero, about, who-should-join, event, testimonials, and CTA.
+- Community-forward content with social proof and Instagram moments.
+- Lightweight data config for event and contact details.
+- Responsive layout with motion and iconography.
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React icons
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies and start the dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
+
+## Customize Content
+
+Update community stats, event info, and links in the data module, and swap images in the public images folder to match the brand.
+
+## Status
+
+Active development.
