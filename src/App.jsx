@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import SocialProof from "./components/SocialProof";
@@ -6,13 +8,12 @@ import WhoShouldJoin from "./components/WhoShouldJoin";
 import UpcomingEvent from "./components/UpcomingEvent";
 import RegistrationForm from "./components/RegistrationForm";
 import Testimonials from "./components/Testimonials";
-import InstagramSection from "./components/InstagramSection";
 import Founder from "./components/Founder";
-import CTABanner from "./components/CTABanner";
 import Footer from "./components/Footer";
 import WhatsAppFloating from "./components/WhatsAppFloating";
+import Admin from "./admin/Admin";
 
-function App() {
+function Home() {
   return (
     <>
       <Navbar />
@@ -23,13 +24,21 @@ function App() {
       <UpcomingEvent />
       <RegistrationForm />
       <Testimonials />
-      <InstagramSection />
       <Founder />
-      <CTABanner />
       <Footer />
       <WhatsAppFloating />
     </>
   );
 }
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
+  );
+}
+
 
 export default App;

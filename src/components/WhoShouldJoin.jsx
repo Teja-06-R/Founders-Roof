@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useSiteData } from "../hooks/useSiteData";
 import { Rocket, PenTool, GraduationCap, Briefcase } from "lucide-react";
 
 const audiences = [
@@ -25,10 +26,12 @@ const audiences = [
 ];
 
 export default function WhoShouldJoin() {
+  // Add this inside the component, before return:
+  const { data } = useSiteData();
+  const whatsappLink = data?.links?.whatsapp ?? "#";
   return (
     <section id="who" className="bg-[#f9fafb] py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-
         {/* HEADER */}
         <p className="text-sm font-semibold uppercase tracking-widest text-orange-500">
           Who's it for
@@ -69,18 +72,15 @@ export default function WhoShouldJoin() {
 
         {/* CTA */}
         <div className="mt-12">
-          <button
-            onClick={() =>
-              document
-                .getElementById("register")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-lg"
           >
-            Reserve Your Spot →
-          </button>
+            Join WhatsApp Community →
+          </a>
         </div>
-
       </div>
     </section>
   );
