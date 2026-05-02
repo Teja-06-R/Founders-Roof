@@ -1,20 +1,18 @@
 import { useSiteData } from "../hooks/useSiteData";
+import ShimmerImage from "./ShimmerImage";
 
 export default function SocialProof() {
-  const FALLBACK_IMGS = ["/images/meetup1.png", "/images/meetup2.png", "/images/meetup3.png"];
-
   const { data } = useSiteData();
   const stats = data?.stats ?? { members: "1000+" };
   const links = data?.links ?? {};
 
   // Use Firestore images, fall back to local if not uploaded yet
   const communityImgs = [0, 1, 2].map(
-    (i) => data?.images?.community?.[i] || FALLBACK_IMGS[i]
+    (i) => data?.images?.community?.[i] || "",
   );
   return (
-     <section className="bg-[#f9fafb] py-20">
+    <section className="bg-[#f9fafb] py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-
         <p className="text-sm font-semibold uppercase tracking-widest text-orange-500">
           Community in Action
         </p>
@@ -29,8 +27,8 @@ export default function SocialProof() {
 
         {/* CTA — client spec: Join WhatsApp, remove Reserve Your Spot */}
         <div className="mt-6">
-          
-            <a href={links.whatsapp ?? "#"}
+          <a
+            href={links.whatsapp ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-lg"
@@ -44,17 +42,16 @@ export default function SocialProof() {
           {communityImgs.map((src, index) => (
             <div
               key={index}
-              className="group overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="group overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-[220px] sm:h-[260px] lg:h-[280px]"
             >
-              <img
+              <ShimmerImage
                 src={src}
                 alt={`Founders Roof meetup ${index + 1}`}
-                className="h-[220px] w-full object-cover sm:h-[260px] lg:h-[280px] transition-transform duration-500 group-hover:scale-105"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

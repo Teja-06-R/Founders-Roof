@@ -2,3 +2,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 0%,
+    #fff7ed 50%,
+    #f3f4f6 100%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}

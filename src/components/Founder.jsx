@@ -1,10 +1,11 @@
 import { CONTACT } from "../data/siteData";
 import { useSiteData } from "../hooks/useSiteData";
+import ShimmerImage from "./ShimmerImage";
 
 export default function Founder() {
   const { data } = useSiteData();
   const links = data?.links ?? {};
-  const founderImg = data?.images?.founder || "/images/founder.png";
+  const founderImg = data?.images?.founder || "";
   return (
     <section className="bg-[#f9fafb] py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -23,26 +24,30 @@ export default function Founder() {
 
             {/* Story (NOT boring description) */}
             <p className="mt-6 text-gray-600 leading-relaxed text-base">
-              I started Founders Roof with a simple belief that real conversations move things forward.
+              I started Founders Roof with a simple belief that real
+              conversations move things forward.
             </p>
 
             <p className="mt-4 text-gray-600 leading-relaxed text-base">
-              What began in Vijayawada has grown into a 2000+ member founder community.
+              What began in Vijayawada has grown into a 2000+ member founder
+              community.
             </p>
 
             <p className="mt-4 text-gray-600 leading-relaxed text-base">
-              I saw a gap where people were meeting often, but not really connecting in a meaningful way.
-              Founders Roof was built to change that by bringing the right people into the same room.
+              I saw a gap where people were meeting often, but not really
+              connecting in a meaningful way. Founders Roof was built to change
+              that by bringing the right people into the same room.
             </p>
 
             <p className="mt-4 text-gray-600 leading-relaxed text-base">
-              What drives me is the idea of building a space where ambitious individuals can think clearly,
-              share openly, and grow through real interactions.
+              What drives me is the idea of building a space where ambitious
+              individuals can think clearly, share openly, and grow through real
+              interactions.
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed text-base">
-              This is just the beginning. 
+              This is just the beginning.
             </p>
-           
+
             {/* CTA */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -53,8 +58,6 @@ export default function Founder() {
               >
                 Follow on Instagram
               </a>
-
-              
             </div>
           </div>
 
@@ -65,11 +68,11 @@ export default function Founder() {
               <div className="absolute -inset-4 bg-orange-200/30 blur-2xl rounded-3xl"></div>
 
               {/* Image */}
-              <div className="relative overflow-hidden rounded-3xl shadow-xl">
-                <img
-                  src={founderImg} // 👈 put your image in public folder
+              <div className="relative overflow-hidden rounded-3xl shadow-xl h-[320px] sm:h-[420px] lg:h-[460px]">
+                <ShimmerImage
+                  src={founderImg}
                   alt="Vishnu Vanapala"
-                  className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[460px]"
+                  className="object-cover"
                 />
               </div>
             </div>

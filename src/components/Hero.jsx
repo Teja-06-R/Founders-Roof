@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useSiteData } from "../hooks/useSiteData";
+import ShimmerImage from "./ShimmerImage";
 
 // Fallback images if admin hasn't uploaded yet
-const FALLBACK_HERO_IMG = "/images/hero.png";
 
 export default function Hero() {
   const { data, loading } = useSiteData();
@@ -10,7 +10,7 @@ export default function Hero() {
   const event = data?.event ?? null;
   const links = data?.links ?? {};
   const stats = data?.stats ?? { members: "1000+", meetups: "10+" };
-  const heroImg =data?.images?.hero || FALLBACK_HERO_IMG;
+  const heroImg = data?.images?.hero || "";
 
   // Badge
   const badgeText = (() => {
@@ -112,11 +112,11 @@ export default function Hero() {
           className="mt-12 flex-1 lg:mt-0 flex justify-center"
         >
           <div className="relative w-full max-w-[520px]">
-            <div className="overflow-hidden rounded-2xl shadow-xl">
-              <img
+            <div className="overflow-hidden rounded-2xl shadow-xl h-[250px] sm:h-[380px] lg:h-[420px]">
+              <ShimmerImage
                 src={heroImg}
                 alt="Founders Roof meetup"
-                className="h-[250px] w-full object-cover sm:h-[380px] lg:h-[420px]"
+                className="object-cover"
               />
             </div>
             <div className="absolute -bottom-6 left-6 rounded-xl bg-white px-4 py-2 shadow-lg">
